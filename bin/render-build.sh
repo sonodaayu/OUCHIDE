@@ -5,6 +5,7 @@ set -o errexit
 bundle config set force_ruby_platform true
 bundle install
 yarn install
+yarn add esbuild
 yarn build
 bundle exec rake assets:precompile
 bundle exec rails db:migrate
