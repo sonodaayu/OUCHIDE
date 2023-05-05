@@ -1,0 +1,69 @@
+a{
+    text-decoration: none;
+}
+
+
+.head-content > .left{
+    float: left;
+}
+
+.head-content > .right{
+    float: right;
+    padding-right: 50px;
+    padding-top: 20px;
+}
+
+
+.head-content > .right ul{
+    display: flex;
+  }
+  
+.head-content > .right li{
+list-style: none;
+margin-right: 40px; 
+}
+
+
+.topimage img{
+    width: 100%;
+}
+
+.content-top{
+    height: 300px;
+    text-align: center;
+}
+
+.content-top > h1{
+    padding-top: 50px;
+}
+
+.idea{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.content{
+    height: 500px;
+    width: 100%;
+}
+
+
+
+.content > .left{
+    width: 47%;
+    float: left;
+    text-align: center;
+}
+.content > .right{
+    width: 47%;
+    float: right;
+    text-align: center;
+}
+
+
+.content > .left > img{
+    width: 100%;
+}
+
+.content > .right > img{
+    width: 100%;
+}

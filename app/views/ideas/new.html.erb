@@ -1,0 +1,5 @@
+<%= link_to 'トップページへ戻る', ouchis_path %>
+<%= form_with model: [@ouchi, @idea] do |f| %>
+    <%= f.text_area :body, placeholder: "コメントする" %>
+    <%= f.submit "SEND" %>
+  <% end %>

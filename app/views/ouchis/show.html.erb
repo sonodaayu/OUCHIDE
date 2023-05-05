@@ -1,0 +1,67 @@
+<%= stylesheet_link_tag "ouchisshow", :media => "all" %>
+<header>
+<h1>OUCHIDE</h1>
+<div class='header-list'>
+<ul>
+<% if user_signed_in? %>
+<li><%= link_to 'マイページへ', mypage_path(id: current_user.id) %>
+<% end %>
+<li><%= link_to @new, ideas_new_path(ouchi_id:@ouchi.id) %>
+<li><%= link_to 'トップページへ戻る', ouchis_path %>
+</ul>
+</div>
+</header>
+
+<div class='topic-img'>
+<% if @ouchi.topic == 'Movie' %>
+    <%= image_tag @img_movie %>
+<% elsif @ouchi.topic=='Cooking' %>
+    <%= image_tag @img_cooking %>
+<% elsif @ouchi.topic=='Animals' %>
+    <%= image_tag @img_animals %>
+<% elsif @ouchi.topic=='Interiors' %>
+    <%= image_tag @img_interiors %>
+<% elsif @ouchi.topic=='Shopping' %>
+    <%= image_tag @img_shopping %>
+<% elsif @ouchi.topic=='Workout' %>
+    <%= image_tag @img_workout %>
+<% else @ouchi.topic=='Games' %>
+    <%= image_tag @img_games %>
+<% end %>
+</div>
+
+
+<div class='content'>
+<% @ideas.each do |t| %>
+    <div class='ideas'>
+    <%= t.body %>
+    <% if user_signed_in? %>
+        <ul>
+            <% if current_user.already_liked?(t) %>
+                <%= link_to idea_like_path(t.id), method: :delete do %>
+                    <li><i class="fas fa-heart"></i>
+                <% end %>
+                <li> <%= t.likes.count %> likes
+            <% else %>
+                <%= link_to idea_likes_path(t), method: :post do %>
+                    <li><i class="fa-sharp fa-regular fa-heart"></i>
+                <% end %>
+                <li><%= t.likes.count %> likes
+            <% end %>
+            <% if t.user_id == current_user.id %>
+                <li><%= button_to "削除する", idea_delete_show_path(t.id), method: :delete %>
+            <% end %>
+        </ul>
+    <% else %>
+        <ul>
+        <%= link_to new_user_registration_path, method: :get do %>
+            <li><i class="fa-sharp fa-regular fa-heart"></i>
+        <% end %>
+        <li> <%= t.likes.count %> likes
+        </ul>
+    <% end %>
+    <br>
+    </div>
+<% end %>
+</div>
+

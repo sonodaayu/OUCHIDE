@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag "mypage", :media => "all" %>
+<%= link_to 'トップページへ戻る', ouchis_path %>
+<h1>Hello <%= current_user.user_name %> !</h1>
+
+
+<h2>投稿アイデア一覧</h2>
+<% @user.ideas.each do |t| %>
+    <div class='ideas'>
+    <p><%= t.body %></p>
+    <%= t.created_at %>
+    <%= button_to "削除する", idea_delete_path(t.id), method: :delete %>
+    </div>
+<% end %>
