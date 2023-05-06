@@ -2,6 +2,7 @@
 # exit on error
 set -o errexit
 
+rm -rf vendor/cache
 bundle config set force_ruby_platform true
 bundle install
 yarn install
