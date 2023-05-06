@@ -4,6 +4,7 @@ set -o errexit
 
 rm -rf vendor/cache
 bundle config set force_ruby_platform true
+bundle config --local set path 'vendor/bundle
 bundle install
 gem install nokogiri -v "1.14.3"
 yarn install
