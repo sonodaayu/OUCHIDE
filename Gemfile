@@ -55,6 +55,7 @@ group :production do
  # Use PstgreSQL as the database for Active Record
  gem 'pg'
  gem 'dotenv-rails'
+ gem 'nokogiri'
 end
 # Use Puma as the app server
 # gem 'puma', '~> 5.0'
