@@ -5,7 +5,7 @@ set -o errexit
 rm -rf vendor/cache
 bundle config set force_ruby_platform true
 bundle install
-gem install nokogiri -v "1.14.3-x86_64-linux"
+gem install nokogiri -v "1.14.3"
 yarn install
 yarn add esbuild
 yarn build
